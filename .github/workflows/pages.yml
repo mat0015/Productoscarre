@@ -1,0 +1,43 @@
+name: Publicar panel
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'carrefour-telegram-monitor/panel/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+      - name: Preparar Pages
+        uses: actions/configure-pages@v5
+      - name: Preparar sitio
+        run: |
+          mkdir -p _site
+          cp carrefour-telegram-monitor/panel/index.html _site/index.html
+          cp carrefour-telegram-monitor/panel/app.js _site/app.js
+          cp carrefour-telegram-monitor/panel/style.css _site/style.css
+      - name: Subir artefacto
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Publicar en Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
