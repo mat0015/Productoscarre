@@ -1,0 +1,9 @@
+{
+  "name": "carrefour-telegram-monitor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Monitor diario de precios Carrefour Argentina con aviso por Telegram",
+  "type": "module",
+  "scripts": {"run": "node monitor.mjs"},
+  "dependencies": {"dotenv": "^16.4.5"}
+}

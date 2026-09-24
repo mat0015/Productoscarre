@@ -1,0 +1,11 @@
+{
+  "postalCode": "1686",
+  "sendHour": 10,
+  "sendMinute": 0,
+  "timezone": "America/Argentina/Buenos_Aires",
+  "products": [
+    {"name":"Alimento húmedo para gato Whiskas 85 g carne","url":"https://www.carrefour.com.ar/alimento-humedo-para-gato-whiskas-85-g-carne-475819/p"},
+    {"name":"Fernet Branca botella 750 cc","url":"https://www.carrefour.com.ar/fernet-branca-botella-750-cc/p"},
+    {"name":"Vino tinto Cabernet Sauvignon Piatelli Reserva Cafayate 750 ml","url":"https://www.carrefour.com.ar/vino-tinto-cabernet-sauvignon-piatelli-reserva-cafayate-750-ml-761551/p"}
+  ]
+}
