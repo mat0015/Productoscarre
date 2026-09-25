@@ -1,0 +1,26 @@
+{
+  "updatedAt": "2026-09-25T00:34:39.279Z",
+  "products": {
+    "https://www.carrefour.com.ar/alimento-humedo-para-gato-whiskas-85-g-carne-475819/p": {
+      "name": "Alimento húmedo para gato Whiskas 85 g carne",
+      "url": "https://www.carrefour.com.ar/alimento-humedo-para-gato-whiskas-85-g-carne-475819/p",
+      "price": 2,
+      "checkedAt": "2026-09-25T00:34:36.311Z",
+      "status": "ok"
+    },
+    "https://www.carrefour.com.ar/fernet-branca-botella-750-cc/p": {
+      "name": "Fernet Branca botella 750 cc",
+      "url": "https://www.carrefour.com.ar/fernet-branca-botella-750-cc/p",
+      "price": 2,
+      "checkedAt": "2026-09-25T00:34:37.817Z",
+      "status": "ok"
+    },
+    "https://www.carrefour.com.ar/vino-tinto-cabernet-sauvignon-piatelli-reserva-cafayate-750-ml-761551/p": {
+      "name": "Vino tinto Cabernet Sauvignon Piatelli Reserva Cafayate 750 ml",
+      "url": "https://www.carrefour.com.ar/vino-tinto-cabernet-sauvignon-piatelli-reserva-cafayate-750-ml-761551/p",
+      "price": 2,
+      "checkedAt": "2026-09-25T00:34:39.261Z",
+      "status": "ok"
+    }
+  }
+}
