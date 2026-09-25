@@ -10,14 +10,30 @@ function money(value) {
   if (value == null) return 'No disponible';
   return new Intl.NumberFormat('es-AR', {style:'currency', currency:'ARS', maximumFractionDigits:2}).format(value);
 }
+function parseAmount(raw) {
+  const value = String(raw).trim();
+  if (value.includes('.') && value.includes(',')) return Number(value.replace(/\./g,'').replace(',','.'));
+  if (value.includes(',')) return Number(value.replace(',','.'));
+  // En JSON/HTML de Carrefour un punto suele ser decimal; en formato AR los puntos pueden ser miles.
+  const parts = value.split('.');
+  if (parts.length > 2) return Number(parts.join(''));
+  if (parts.length === 2 && parts[1].length === 3) return Number(parts.join(''));
+  return Number(value);
+}
 function findPrices(text) {
-  const patterns = [/(?:price|sellingPrice|spotPrice|lowPrice)[^\d]{0,30}(\d{2,8}(?:[.,]\d{1,2})?)/gi, /\$\s?([\d.]+(?:,\d{1,2})?)/g];
-  const values=[];
-  for (const re of patterns) for (const m of text.matchAll(re)) {
-    const n=Number(m[1].replace(/\./g,'').replace(',','.'));
-    if (n>0 && n<100000000) values.push(n);
-  }
-  return values.sort((a,b)=>a-b)[0] ?? null;
+  const candidates=[];
+  const add=(raw,score)=>{const n=parseAmount(raw);if(Number.isFinite(n)&&n>=100&&n<100000000)candidates.push({n,score});};
+  // Prioridad alta: campos habituales de catálogo/VTEX y ofertas JSON-LD.
+  for (const re of [
+    /(?:sellingPrice|spotPrice|salePrice|currentPrice|price)["'\s:] {0,4}(?:\$\s*)?([\d.,]+)/gi,
+    /(?:price|lowPrice)[^\d]{0,30}(\d{2,8}(?:[.,]\d{1,2})?)/gi
+  ]) for (const m of text.matchAll(re)) add(m[1], 3);
+  // Prioridad media: importes explícitamente acompañados por símbolo monetario.
+  for (const re of [/\$\s*([\d.]+(?:,\d{1,2})?)/g, /ARS\s*([\d.]+(?:,\d{1,2})?)/gi])
+    for (const m of text.matchAll(re)) add(m[1], 2);
+  if (!candidates.length) return null;
+  candidates.sort((a,b)=>b.score-a.score || b.n-a.n);
+  return candidates[0].n;
 }
 async function getProduct(product) {
   const url = new URL(product.url);
