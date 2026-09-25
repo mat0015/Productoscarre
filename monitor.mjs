@@ -22,36 +22,44 @@ function parseAmount(raw, fromPriceField=false) {
   if (parts.length === 2 && parts[1].length === 3) return Number(parts.join(''));
   return Number(value);
 }
-function extractAmounts(text, regexes, fromPriceField=false) {
-  const values=[];
-  for (const re of regexes) for (const m of text.matchAll(re)) {
-    const n=parseAmount(m[1],fromPriceField);
-    if (Number.isFinite(n)&&n>=100&&n<100000000&&!values.includes(n)) values.push(n);
-  }
-  return values;
+function cleanPromo(value) {
+  if (typeof value !== 'string') return null;
+  const text=value.replace(/\s+/g,' ').trim();
+  return /\b\d+\s*[xX]\s*\d+\b/.test(text) && !/[A-Za-z0-9+/]{45,}\.?/.test(text) ? text : null;
+}
+function findStructuredPrices(data) {
+  const item=data?.[0]?.items?.[0] ?? data?.items?.[0] ?? data?.item ?? data;
+  const offer=item?.sellers?.[0]?.commertialOffer ?? item?.seller?.commertialOffer ?? data?.commertialOffer ?? {};
+  const product=data?.[0] ?? data;
+  const price=Number(offer.Price ?? product.Price ?? offer.price ?? product.price);
+  const listPrice=Number(offer.ListPrice ?? product.ListPrice ?? offer.PriceWithoutDiscount ?? product.PriceWithoutDiscount);
+  const teaser=data?.[0]?.PromotionTeasers?.[0]?.Name ?? data?.PromotionTeasers?.[0]?.Name ?? data?.[0]?.Teasers?.[0]?.['<Name>k__BackingField'] ?? null;
+  const promotion=cleanPromo(teaser) ?? cleanPromo(Object.values(product?.productClusters ?? {}).find(v=>cleanPromo(v)));
+  const code=promotion?.match(/\b(\d+)\s*[xX]\s*(\d+)\b/);
+  const buy=code?Number(code[1]):null, pay=code?Number(code[2]):null;
+  const promoUnitPrice=promotion&&buy>pay&&Number.isFinite(listPrice)&&listPrice>0?listPrice*pay/buy:null;
+  if (!Number.isFinite(price) || price<=0) return null;
+  return {price, listPrice:Number.isFinite(listPrice)&&listPrice>0?listPrice:null, promotion, promoUnitPrice:promoUnitPrice?Math.round(promoUnitPrice*100)/100:null, promoBuy:buy, promoPay:pay};
 }
 function findPrices(text) {
-  const offer = extractAmounts(text, [
-    /(?:sellingPrice|spotPrice|salePrice|currentPrice|selling_price)["'\s:]{0,8}(?:\$\s*)?([\d.,]+)/gi,
-    /(?:price|lowPrice)[^\d]{0,30}(\d{2,8}(?:[.,]\d{1,2})?)/gi
-  ], true);
-  const visible = extractAmounts(text, [/\$\s*([\d.]+(?:,\d{1,2})?)/g, /ARS\s*([\d.]+(?:,\d{1,2})?)/gi]);
-  const original = extractAmounts(text, [
-    /(?:listPrice|list_price|oldPrice|old_price|priceWithoutDiscount|listPriceWithoutDiscount)["'\s:]{0,8}(?:\$\s*)?([\d.,]+)/gi,
-    /(?:precio\s*(?:de\s*)?(?:lista|original|tachado))[^\d]{0,20}(\d[\d.,]*)/gi
-  ], true);
-  const all = [...offer, ...visible];
-  const salePrice = offer[0] ?? (all.length ? Math.min(...all) : null);
-  const listPrice = original.find(n=>n !== salePrice) ?? (all.filter(n=>n > salePrice).sort((a,b)=>a-b)[0] ?? null);
-  const promoMatch = text.match(/\b(\d+\s*[xX]\s*\d+[^\n<]{0,100})/i);
-  return {price:salePrice, listPrice, promotion:promoMatch?.[1]?.replace(/\s+/g,' ').trim() ?? null};
+  try { const data=JSON.parse(text); const structured=findStructuredPrices(data); if (structured) return structured; } catch {}
+  return {price:null,listPrice:null,promotion:null,promoUnitPrice:null,promoBuy:null,promoPay:null};
 }
 async function getProduct(product) {
-  const url = new URL(product.url);
-  const res = await fetch(url, {headers:{...headers, 'X-VTEX-API-AppKey': process.env.VTEX_APP_KEY || ''}});
-  const text = await res.text();
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return {...product, ...findPrices(text), checkedAt:new Date().toISOString(), status:'ok'};
+  const path=new URL(product.url).pathname.replace(/^\//,'').replace(/\/p\/?$/,'');
+  const reference=product.url.match(/-(\d+)\/p(?:[?#].*)?$/)?.[1];
+  const endpoints=[
+    `https://www.carrefour.com.ar/api/catalog_system/pub/products/search/${path}`,
+    reference?`https://www.carrefour.com.ar/api/catalog_system/pub/products/search?fq=alternateIds_RefId:${reference}`:null
+  ].filter(Boolean);
+  for (const apiUrl of endpoints) {
+    const res=await fetch(apiUrl,{headers});
+    const text=await res.text();
+    if (!res.ok) continue;
+    const prices=findPrices(text);
+    if (prices.price!=null) return {...product,...prices,checkedAt:new Date().toISOString(),status:'ok'};
+  }
+  throw new Error('API Catalog no devolvió un precio');
 }
 async function sendTelegram(message) {
   if (!process.env.TELEGRAM_BOT_TOKEN || !process.env.TELEGRAM_CHAT_ID) throw new Error('Faltan TELEGRAM_BOT_TOKEN o TELEGRAM_CHAT_ID');
@@ -63,7 +71,7 @@ const old = JSON.parse(await fs.readFile(historyPath,'utf8').catch(()=>'{"produc
 const result=[];
 for (const p of cfg.products) { try { result.push(await getProduct(p)); } catch (e) { result.push({...p,price:null,status:`error: ${e.message}`,checkedAt:new Date().toISOString()}); } }
 const lines=[`Precios Carrefour - ${new Date().toLocaleDateString('es-AR',{timeZone:cfg.timezone})}`,`Código postal: ${cfg.postalCode}`,''];
-for (const p of result) { const prev=old.products?.[p.url]?.price; const change=prev!=null&&p.price!=null ? p.price-prev : null; const delta=change===null?'':` (${change>0?'+':''}${money(change)})`; const list=p.listPrice!=null&&p.listPrice!==p.price?`\nPrecio de lista: ${money(p.listPrice)}`:''; const promo=p.promotion?`\nPromoción: ${p.promotion}`:''; lines.push(`${p.name}\nPrecio de oferta: ${money(p.price)}${delta}${list}${promo}\nEstado: ${p.status}`,''); }
+for (const p of result) { const base=p.listPrice??p.price; const baseLine=base!=null?`\nPrecio de lista: ${money(base)}`:''; const promo=p.promotion?`\nPromoción: ${p.promotion}`:''; const promoPrice=p.promoUnitPrice!=null?`\nPrecio con promoción: ${money(p.promoUnitPrice)} por unidad`:`\nPrecio actual: ${money(p.price)}`; lines.push(`${p.name}${baseLine}${promo}${promoPrice}`,''); }
 await fs.writeFile(historyPath,JSON.stringify({updatedAt:new Date().toISOString(),products:Object.fromEntries(result.map(p=>[p.url,p]))},null,2));
 await sendTelegram(lines.join('\n'));
 console.log(lines.join('\n'));
