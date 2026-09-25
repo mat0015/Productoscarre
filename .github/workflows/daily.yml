@@ -2,7 +2,7 @@ name: Consulta diaria Carrefour
 
 on:
   schedule:
-    # 10:07 en Argentina (UTC-3). GitHub puede retrasar algunos minutos.
+    # Aproximadamente 10:07 en Argentina
     - cron: '7 13 * * *'
   workflow_dispatch:
 
@@ -17,6 +17,7 @@ jobs:
   check-prices:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
@@ -26,14 +27,12 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: Productoscarre/package.json
+          cache-dependency-path: package.json
 
       - name: Instalar dependencias
-        working-directory: Productoscarre
         run: npm install --omit=dev
 
       - name: Consultar precios y enviar Telegram
-        working-directory: Productoscarre
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -45,7 +44,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Productoscarre/history.json
+          git add history.json
           git diff --cached --quiet || git commit -m "Actualizar historial de precios"
           git push
-
