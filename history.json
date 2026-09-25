@@ -1,25 +1,25 @@
 {
-  "updatedAt": "2026-09-25T00:34:39.279Z",
+  "updatedAt": "2026-09-25T00:48:28.915Z",
   "products": {
     "https://www.carrefour.com.ar/alimento-humedo-para-gato-whiskas-85-g-carne-475819/p": {
       "name": "Alimento húmedo para gato Whiskas 85 g carne",
       "url": "https://www.carrefour.com.ar/alimento-humedo-para-gato-whiskas-85-g-carne-475819/p",
-      "price": 2,
-      "checkedAt": "2026-09-25T00:34:36.311Z",
+      "price": 151900,
+      "checkedAt": "2026-09-25T00:48:27.449Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/fernet-branca-botella-750-cc/p": {
       "name": "Fernet Branca botella 750 cc",
       "url": "https://www.carrefour.com.ar/fernet-branca-botella-750-cc/p",
-      "price": 2,
-      "checkedAt": "2026-09-25T00:34:37.817Z",
+      "price": 1970000,
+      "checkedAt": "2026-09-25T00:48:27.825Z",
       "status": "ok"
     },
-    "https://www.carrefour.com.ar/vino-tinto-cabernet-sauvignon-piatelli-reserva-cafayate-750-ml-761551/p": {
-      "name": "Vino tinto Cabernet Sauvignon Piatelli Reserva Cafayate 750 ml",
-      "url": "https://www.carrefour.com.ar/vino-tinto-cabernet-sauvignon-piatelli-reserva-cafayate-750-ml-761551/p",
-      "price": 2,
-      "checkedAt": "2026-09-25T00:34:39.261Z",
+    "https://www.carrefour.com.ar/vino-tinto-malbec-piatelli-reserva-cafayate-750-ml-761549/p": {
+      "name": "Vino tinto Malbec Piatelli reserva cafayate 750 ml",
+      "url": "https://www.carrefour.com.ar/vino-tinto-malbec-piatelli-reserva-cafayate-750-ml-761549/p",
+      "price": 1725000,
+      "checkedAt": "2026-09-25T00:48:28.897Z",
       "status": "ok"
     }
   }
