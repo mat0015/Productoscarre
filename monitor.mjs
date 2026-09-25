@@ -25,7 +25,10 @@ function parseAmount(raw, fromPriceField=false) {
 function cleanPromo(value) {
   if (typeof value !== 'string') return null;
   const text=value.replace(/\s+/g,' ').trim();
-  return /\b\d+\s*[xX]\s*\d+\b/.test(text) && !/[A-Za-z0-9+/]{45,}\.?/.test(text) ? text : null;
+  // Solo aceptamos combos comerciales válidos; no códigos internos como 293x2.
+  const match=text.match(/\b(2\s*[xX]\s*1|3\s*[xX]\s*2|4\s*[xX]\s*2)\b/i);
+  if (!match || /[A-Za-z0-9+/]{45,}\.?/.test(text)) return null;
+  return text;
 }
 function findStructuredPrices(data) {
   const item=data?.[0]?.items?.[0] ?? data?.items?.[0] ?? data?.item ?? data;
@@ -34,8 +37,9 @@ function findStructuredPrices(data) {
   const price=Number(offer.Price ?? product.Price ?? offer.price ?? product.price);
   const listPrice=Number(offer.ListPrice ?? product.ListPrice ?? offer.PriceWithoutDiscount ?? product.PriceWithoutDiscount);
   const teaser=data?.[0]?.PromotionTeasers?.[0]?.Name ?? data?.PromotionTeasers?.[0]?.Name ?? data?.[0]?.Teasers?.[0]?.['<Name>k__BackingField'] ?? null;
-  const promotion=cleanPromo(teaser) ?? cleanPromo(Object.values(product?.productClusters ?? {}).find(v=>cleanPromo(v)));
-  const code=promotion?.match(/\b(\d+)\s*[xX]\s*(\d+)\b/);
+  // productClusters son campañas generales y no prueban que el producto tenga promoción activa.
+  const promotion=cleanPromo(teaser);
+  const code=promotion?.match(/\b(2|3|4)\s*[xX]\s*(1|2)\b/i);
   const buy=code?Number(code[1]):null, pay=code?Number(code[2]):null;
   const promoUnitPrice=promotion&&buy>pay&&Number.isFinite(listPrice)&&listPrice>0?listPrice*pay/buy:null;
   if (!Number.isFinite(price) || price<=0) return null;
