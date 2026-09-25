@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-25T15:22:00.825Z",
+  "updatedAt": "2026-09-25T17:55:31.178Z",
   "products": {
     "https://www.carrefour.com.ar/alimento-humedo-para-gato-whiskas-85-g-carne-475819/p": {
       "name": "Alimento húmedo para gato Whiskas 85 g carne",
@@ -10,7 +10,7 @@
       "promoUnitPrice": 1012.67,
       "promoBuy": 3,
       "promoPay": 2,
-      "checkedAt": "2026-09-25T15:22:00.468Z",
+      "checkedAt": "2026-09-25T17:55:30.921Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/fernet-branca-botella-750-cc/p": {
@@ -22,7 +22,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-09-25T15:22:00.569Z",
+      "checkedAt": "2026-09-25T17:55:30.975Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/vino-tinto-malbec-piatelli-reserva-cafayate-750-ml-761549/p": {
@@ -34,7 +34,7 @@
       "promoUnitPrice": 117.75,
       "promoBuy": 293,
       "promoPay": 2,
-      "checkedAt": "2026-09-25T15:22:00.808Z",
+      "checkedAt": "2026-09-25T17:55:31.160Z",
       "status": "ok"
     }
   }
