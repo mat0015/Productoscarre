@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'carrefour-telegram-monitor/panel/**'
+      - 'Productoscarre/panel/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -31,9 +31,9 @@ jobs:
       - name: Preparar sitio
         run: |
           mkdir -p _site
-          cp carrefour-telegram-monitor/panel/index.html _site/index.html
-          cp carrefour-telegram-monitor/panel/app.js _site/app.js
-          cp carrefour-telegram-monitor/panel/style.css _site/style.css
+          cp Productoscarre/panel/index.html _site/index.html
+          cp Productoscarre/panel/app.js _site/app.js
+          cp Productoscarre/panel/style.css _site/style.css
       - name: Subir artefacto
         uses: actions/upload-pages-artifact@v3
         with:
