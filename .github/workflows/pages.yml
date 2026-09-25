@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'Productoscarre/panel/**'
+      - 'panel/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -31,9 +31,9 @@ jobs:
       - name: Preparar sitio
         run: |
           mkdir -p _site
-          cp Productoscarre/panel/index.html _site/index.html
-          cp Productoscarre/panel/app.js _site/app.js
-          cp Productoscarre/panel/style.css _site/style.css
+          cp panel/index.html _site/index.html
+          cp panel/app.js _site/app.js
+          cp panel/style.css _site/style.css
       - name: Subir artefacto
         uses: actions/upload-pages-artifact@v3
         with:
