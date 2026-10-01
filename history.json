@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-01T18:49:41.627Z",
+  "updatedAt": "2026-10-01T19:12:01.069Z",
   "products": {
     "https://www.carrefour.com.ar/alimento-humedo-para-gato-whiskas-85-g-carne-475819/p": {
       "name": "Alimento húmedo para gato Whiskas 85 g carne",
@@ -10,7 +10,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-10-01T18:49:41.059Z",
+      "checkedAt": "2026-10-01T19:12:00.151Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/fernet-branca-botella-750-cc/p": {
@@ -22,7 +22,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-10-01T18:49:41.399Z",
+      "checkedAt": "2026-10-01T19:12:00.258Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/vino-tinto-malbec-piatelli-reserva-cafayate-750-ml-761549/p": {
@@ -34,7 +34,31 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-10-01T18:49:41.610Z",
+      "checkedAt": "2026-10-01T19:12:00.444Z",
+      "status": "ok"
+    },
+    "https://www.carrefour.com.ar/detergente-magistral-ultra-limon-en-botella-500-ml-741296/p": {
+      "name": "Magistral 500 ML",
+      "url": "https://www.carrefour.com.ar/detergente-magistral-ultra-limon-en-botella-500-ml-741296/p",
+      "price": 2878.85,
+      "listPrice": 4429,
+      "promotion": null,
+      "promoUnitPrice": null,
+      "promoBuy": null,
+      "promoPay": null,
+      "checkedAt": "2026-10-01T19:12:00.895Z",
+      "status": "ok"
+    },
+    "https://www.carrefour.com.ar/jabon-liquido-para-diluir-skip-bio-enzimas-500-ml-695713/p": {
+      "name": "Skip 500",
+      "url": "https://www.carrefour.com.ar/jabon-liquido-para-diluir-skip-bio-enzimas-500-ml-695713/p",
+      "price": 9265.75,
+      "listPrice": 14255,
+      "promotion": null,
+      "promoUnitPrice": null,
+      "promoBuy": null,
+      "promoPay": null,
+      "checkedAt": "2026-10-01T19:12:01.051Z",
       "status": "ok"
     }
   }
