@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-01T19:12:01.069Z",
+  "updatedAt": "2026-10-01T19:38:04.224Z",
   "products": {
     "https://www.carrefour.com.ar/alimento-humedo-para-gato-whiskas-85-g-carne-475819/p": {
       "name": "Alimento húmedo para gato Whiskas 85 g carne",
@@ -10,11 +10,11 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-10-01T19:12:00.151Z",
+      "checkedAt": "2026-10-01T19:38:02.054Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/fernet-branca-botella-750-cc/p": {
-      "name": "Fernet Branca botella 750 cc",
+      "name": "Fernet Branca botella 750 CC",
       "url": "https://www.carrefour.com.ar/fernet-branca-botella-750-cc/p",
       "price": 19700,
       "listPrice": 19700,
@@ -22,11 +22,11 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-10-01T19:12:00.258Z",
+      "checkedAt": "2026-10-01T19:38:02.282Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/vino-tinto-malbec-piatelli-reserva-cafayate-750-ml-761549/p": {
-      "name": "Vino tinto Malbec Piatelli Reserva Cafayate 750 ml",
+      "name": "Vino tinto Malbec Piatelli Reserva Cafayate 750 ML",
       "url": "https://www.carrefour.com.ar/vino-tinto-malbec-piatelli-reserva-cafayate-750-ml-761549/p",
       "price": 17250,
       "listPrice": 17250,
@@ -34,31 +34,43 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-10-01T19:12:00.444Z",
+      "checkedAt": "2026-10-01T19:38:02.756Z",
       "status": "ok"
     },
-    "https://www.carrefour.com.ar/detergente-magistral-ultra-limon-en-botella-500-ml-741296/p": {
-      "name": "Magistral 500 ML",
-      "url": "https://www.carrefour.com.ar/detergente-magistral-ultra-limon-en-botella-500-ml-741296/p",
-      "price": 2878.85,
-      "listPrice": 4429,
+    "https://www.carrefour.com.ar/cerveza-roja-torobayo-kunstmann-473-ml-659864/p": {
+      "name": "Kunstmann Torobayo 473 ML",
+      "url": "https://www.carrefour.com.ar/cerveza-roja-torobayo-kunstmann-473-ml-659864/p",
+      "price": 4575,
+      "listPrice": 4575,
       "promotion": null,
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-10-01T19:12:00.895Z",
+      "checkedAt": "2026-10-01T19:38:03.067Z",
       "status": "ok"
     },
-    "https://www.carrefour.com.ar/jabon-liquido-para-diluir-skip-bio-enzimas-500-ml-695713/p": {
-      "name": "Skip 500",
-      "url": "https://www.carrefour.com.ar/jabon-liquido-para-diluir-skip-bio-enzimas-500-ml-695713/p",
-      "price": 9265.75,
-      "listPrice": 14255,
+    "https://www.carrefour.com.ar/leche-la-serenisima-ultra-parc-descremada-multivit-1-sachet-1-lt-663213/p": {
+      "name": "Leche La Serenísima Verde Sachet 1 LT",
+      "url": "https://www.carrefour.com.ar/leche-la-serenisima-ultra-parc-descremada-multivit-1-sachet-1-lt-663213/p",
+      "price": 2049,
+      "listPrice": 2049,
       "promotion": null,
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-10-01T19:12:01.051Z",
+      "checkedAt": "2026-10-01T19:38:03.600Z",
+      "status": "ok"
+    },
+    "https://www.carrefour.com.ar/leche-ultra-descremada-la-serenisima-protein-sachet-1-lt-783660/p": {
+      "name": "Leche La Serenísima Protein Sachet 1 LT",
+      "url": "https://www.carrefour.com.ar/leche-ultra-descremada-la-serenisima-protein-sachet-1-lt-783660/p",
+      "price": 2050,
+      "listPrice": 2379,
+      "promotion": null,
+      "promoUnitPrice": null,
+      "promoBuy": null,
+      "promoPay": null,
+      "checkedAt": "2026-10-01T19:38:04.206Z",
       "status": "ok"
     }
   }
