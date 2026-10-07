@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-06T18:53:16.277Z",
+  "updatedAt": "2026-10-07T19:18:32.905Z",
   "products": {
     "https://www.carrefour.com.ar/alimento-humedo-para-gato-whiskas-85-g-carne-475819/p": {
       "name": "Alimento húmedo para gato Whiskas 85 g carne",
       "url": "https://www.carrefour.com.ar/alimento-humedo-para-gato-whiskas-85-g-carne-475819/p",
       "price": null,
       "status": "error: API Catalog no devolvió un precio",
-      "checkedAt": "2026-10-06T18:53:15.381Z"
+      "checkedAt": "2026-10-07T19:18:31.106Z"
     },
     "https://www.carrefour.com.ar/fernet-branca-botella-750-cc/p": {
       "name": "Fernet Branca botella 750 CC",
@@ -17,7 +17,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-10-06T18:53:15.462Z",
+      "checkedAt": "2026-10-07T19:18:31.243Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/vino-tinto-malbec-piatelli-reserva-cafayate-750-ml-761549/p": {
@@ -29,7 +29,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-10-06T18:53:15.893Z",
+      "checkedAt": "2026-10-07T19:18:31.619Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/cerveza-roja-torobayo-kunstmann-473-ml-659864/p": {
@@ -41,7 +41,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-10-06T18:53:15.987Z",
+      "checkedAt": "2026-10-07T19:18:32.063Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/leche-la-serenisima-ultra-parc-descremada-multivit-1-sachet-1-lt-663213/p": {
@@ -53,7 +53,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-10-06T18:53:16.083Z",
+      "checkedAt": "2026-10-07T19:18:32.637Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/leche-ultra-descremada-la-serenisima-protein-sachet-1-lt-783660/p": {
@@ -65,7 +65,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-10-06T18:53:16.258Z",
+      "checkedAt": "2026-10-07T19:18:32.891Z",
       "status": "ok"
     }
   }
