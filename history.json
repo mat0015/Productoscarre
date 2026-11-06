@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T20:36:57.894Z",
+  "updatedAt": "2026-11-06T19:55:40.635Z",
   "products": {
     "https://www.carrefour.com.ar/alimento-humedo-para-gato-whiskas-85-g-carne-475819/p": {
       "name": "Alimento húmedo para gato Whiskas 85 g carne",
@@ -10,7 +10,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-11-05T20:36:55.822Z",
+      "checkedAt": "2026-11-06T19:55:39.443Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/fernet-branca-botella-750-cc/p": {
@@ -22,7 +22,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-11-05T20:36:56.115Z",
+      "checkedAt": "2026-11-06T19:55:39.608Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/vino-tinto-malbec-piatelli-reserva-cafayate-750-ml-761549/p": {
@@ -34,7 +34,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-11-05T20:36:56.620Z",
+      "checkedAt": "2026-11-06T19:55:39.852Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/cerveza-roja-torobayo-kunstmann-473-ml-659864/p": {
@@ -46,7 +46,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-11-05T20:36:57.137Z",
+      "checkedAt": "2026-11-06T19:55:40.098Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/leche-la-serenisima-ultra-parc-descremada-multivit-1-sachet-1-lt-663213/p": {
@@ -58,7 +58,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-11-05T20:36:57.526Z",
+      "checkedAt": "2026-11-06T19:55:40.325Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/leche-ultra-descremada-la-serenisima-protein-sachet-1-lt-783660/p": {
@@ -70,7 +70,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-11-05T20:36:57.877Z",
+      "checkedAt": "2026-11-06T19:55:40.624Z",
       "status": "ok"
     }
   }
