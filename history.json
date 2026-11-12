@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-11T20:09:19.449Z",
+  "updatedAt": "2026-11-12T20:45:30.843Z",
   "products": {
     "https://www.carrefour.com.ar/alimento-humedo-para-gato-whiskas-85-g-carne-475819/p": {
       "name": "Alimento húmedo para gato Whiskas 85 g carne",
@@ -10,7 +10,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-11-11T20:09:17.925Z",
+      "checkedAt": "2026-11-12T20:45:28.803Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/fernet-branca-botella-750-cc/p": {
@@ -22,7 +22,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-11-11T20:09:18.168Z",
+      "checkedAt": "2026-11-12T20:45:29.118Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/vino-tinto-malbec-piatelli-reserva-cafayate-750-ml-761549/p": {
@@ -34,7 +34,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-11-11T20:09:18.413Z",
+      "checkedAt": "2026-11-12T20:45:29.779Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/cerveza-roja-torobayo-kunstmann-473-ml-659864/p": {
@@ -46,19 +46,19 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-11-11T20:09:18.757Z",
+      "checkedAt": "2026-11-12T20:45:30.146Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/leche-la-serenisima-ultra-parc-descremada-multivit-1-sachet-1-lt-663213/p": {
       "name": "Leche La Serenísima Verde Sachet 1 LT",
       "url": "https://www.carrefour.com.ar/leche-la-serenisima-ultra-parc-descremada-multivit-1-sachet-1-lt-663213/p",
-      "price": 2049,
-      "listPrice": 2049,
+      "price": 2225,
+      "listPrice": 2225,
       "promotion": null,
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-11-11T20:09:18.989Z",
+      "checkedAt": "2026-11-12T20:45:30.490Z",
       "status": "ok"
     },
     "https://www.carrefour.com.ar/leche-ultra-descremada-la-serenisima-protein-sachet-1-lt-783660/p": {
@@ -70,7 +70,7 @@
       "promoUnitPrice": null,
       "promoBuy": null,
       "promoPay": null,
-      "checkedAt": "2026-11-11T20:09:19.435Z",
+      "checkedAt": "2026-11-12T20:45:30.825Z",
       "status": "ok"
     }
   }
